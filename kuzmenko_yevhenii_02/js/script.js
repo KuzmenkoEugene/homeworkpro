@@ -1,18 +1,18 @@
-const firstNumberSum = +prompt("Введите число");
-const secondNumberSum = +prompt("Введите второе число");
-const resultNumberSum = firstNumberSum + secondNumberSum
-const resultNumberDiff = firstNumberSum - secondNumberSum
-const resultNumberMult = firstNumberSum * secondNumberSum
-const resultNumberDiv = firstNumberSum / secondNumberSum
+const firstNumber = +prompt("Введите число");
+const secondNumber = +prompt("Введите второе число");
+const resultNumberSum = firstNumber + secondNumber
+const resultNumberDiff = firstNumber - secondNumber
+const resultNumberMult = firstNumber * secondNumber
+const resultNumberDiv = firstNumber / secondNumber
 
 alert(`Calculations are finished!
-Sum: ${firstNumberSum} + ${secondNumberSum} = ${resultNumberSum} 
-Diff: ${firstNumberSum} - ${secondNumberSum} = ${resultNumberDiff} 
-Mult: ${firstNumberSum} * ${secondNumberSum} = ${resultNumberMult} 
-Div: ${firstNumberSum} / ${secondNumberSum} = ${resultNumberDiv}`);
+Sum: ${firstNumber} + ${secondNumber} = ${resultNumberSum} 
+Diff: ${firstNumber} - ${secondNumber} = ${resultNumberDiff} 
+Mult: ${firstNumber} * ${secondNumber} = ${resultNumberMult} 
+Div: ${firstNumber} / ${secondNumber} = ${resultNumberDiv}`);
 
 console.log(` Calculations are finished! 
-Sum: ${firstNumberSum} + ${secondNumberSum} = ${resultNumberSum} 
-Diff: ${firstNumberSum} - ${secondNumberSum} = ${resultNumberDiff} 
-Mult: ${firstNumberSum} * ${secondNumberSum} = ${resultNumberMult} 
-Div: ${firstNumberSum} / ${secondNumberSum} = ${resultNumberDiv}`)
+Sum: ${firstNumber} + ${secondNumber} = ${resultNumberSum} 
+Diff: ${firstNumber} - ${secondNumber} = ${resultNumberDiff} 
+Mult: ${firstNumber} * ${secondNumber} = ${resultNumberMult} 
+Div: ${firstNumber} / ${secondNumber} = ${resultNumberDiv}`)
