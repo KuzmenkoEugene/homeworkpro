@@ -42,7 +42,6 @@ do {
             result = Math.sin(firstNumber); 
             alert(`Operation sin finished with result ${result}`);
             break;
-            case 8: 
         }
     } while(isNaN(firstNumber, secondNumber))
     
