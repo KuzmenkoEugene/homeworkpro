@@ -39,7 +39,7 @@ do {
         } else if (choice == 8) {
             myArrayCase = alert(myArray);
         }
-    } while(isNaN(firstNumber, secondNumber) || Boolean(firstNumber, secondNumber) == false);
+    } while(isNaN(firstNumber) || isNaN(secondNumber) || Boolean(firstNumber, secondNumber) == false);
 
 
     if (choice == 1) {
