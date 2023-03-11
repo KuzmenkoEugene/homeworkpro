@@ -1,12 +1,13 @@
 let firstNumber; 
 let secondNumber;
 let result;
+let myArrayCase;
 const myArray = [];
 
 do {
     do {
-        choice = +prompt(`Выберите номер нужной вам операции: \n1. Сложение  \n2. Вычетание \n3. Умножение \n4. Деление \n5. Возвести в степень \n6. Cos \n7. Sin \n8. History`);
-    } while(choice > 8 || choice === 0 || ! +choice)
+        choice = +prompt(`Выберите номер нужной вам операции: \n0. Выход \n1. Сложение  \n2. Вычетание \n3. Умножение \n4. Деление \n5. Возвести в степень \n6. Cos \n7. Sin \n8. History`);
+    } while(choice > 8 && choice < 1 || isNaN(choice)) 
     
     do {
         switch(choice) {
@@ -57,9 +58,9 @@ do {
             operation = `Operation sin finished with result ${result}`
             myArray[myArray.length] = operation; 
             break;
-            case 8: alert(myArray); break;
+            case 8: myArrayCase = alert(myArray); break;
         } 
-    } while(isNaN(firstNumber, secondNumber))
+    } while(isNaN(firstNumber, secondNumber), myArrayCase !== undefined)
 
     doItAgain = confirm(`Вы хотите совершить еще одну операцию?`)
     
