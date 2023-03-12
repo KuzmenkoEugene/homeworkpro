@@ -1,7 +1,6 @@
 let firstNumber; 
 let secondNumber;
 let result;
-let myArrayCase;
 const myArray = [];
 
 do {
@@ -37,10 +36,9 @@ do {
             firstNumber = +prompt(`Введите число`);
             result = Math.sin(firstNumber); 
         } else if (choice == 8) {
-            myArrayCase = alert(myArray);
+            alert(myArray);
         }
     } while(isNaN(result) || Boolean(firstNumber, secondNumber) == false);
-
 
     if (choice == 1) {
         alert(`Operation sum finished with result ${result}`);
@@ -71,7 +69,6 @@ do {
         operation = `Operation sin finished with result ${result}`;
         myArray[myArray.length] = operation; 
     } 
-
     doItAgain = confirm(`Вы хотите совершить еще одну операцию?`);
     
 } while(doItAgain === true)
