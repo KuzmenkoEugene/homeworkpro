@@ -37,8 +37,8 @@ do {
             result = Math.sin(firstNumber); 
         } else if (choice == 8) {
             alert(myArray);
-        }
-    } while(isNaN(result) || Boolean(firstNumber, secondNumber) == false);
+        } 
+    } while(!result);
 
     if (choice == 1) {
         alert(`Operation sum finished with result ${result}`);
