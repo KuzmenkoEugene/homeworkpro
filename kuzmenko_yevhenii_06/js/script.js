@@ -1,17 +1,16 @@
 let result;
 let secondNumber;
 let firstNumber;
+let firstNumberResult;
 let operation;
 let myArray = [];
 
 function choiceOperations() {
-    do {
-        return choice = prompt(`Выберите номер нужной вам операции: \n1. Сложение  \n2. Вычетание \n3. Умножение \n4. Деление \n5. Возвести в степень \n6. Cos \n7. Sin \n8. History`);
-    } while(isNaN(choice) || choice > 8 || choice == 0);
+    return choice = prompt(`Выберите номер нужной вам операции: \n1. Сложение  \n2. Вычетание \n3. Умножение \n4. Деление \n5. Возвести в степень \n6. Cos \n7. Sin \n8. History`);
 }
 
 function firstOperand() {
-    return firstNumber = +prompt(`Введите число`);
+    return firstNumber = prompt(`Введите число`);
 }
 
 function secondOperand() {
@@ -126,12 +125,14 @@ function saveSinOperationInHistory() {
 }
 
 do {
-    choiceOperations();
+    do {
+        choiceOperations();
+    } while(isNaN(choice) || choice > 8 || choice == 0);
 
     if (choice == 1) {
         do {
             firstOperand();
-        } while(!firstNumber);
+        } while(Number(firstNumber) === 0 && !Number(firstNumber) || !firstNumber);
         do {
             secondOperand();
         } while(!secondNumber);
@@ -197,7 +198,7 @@ do {
     if (choice == 8) {  
         historyOperation();
     }
-    
+
     doItAgainWindow();
 
 } while(doItAgain === true);
