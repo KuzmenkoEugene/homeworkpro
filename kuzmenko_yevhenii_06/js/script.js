@@ -1,56 +1,90 @@
+let choice
 let result;
 let secondNumber;
 let firstNumber;
 let firstNumberResult;
+let secondNumberResult;
 let operation;
 let myArray = [];
 
 function choiceOperations() {
-    return choice = prompt(`Выберите номер нужной вам операции: \n1. Сложение  \n2. Вычетание \n3. Умножение \n4. Деление \n5. Возвести в степень \n6. Cos \n7. Sin \n8. History`);
+    choice = prompt(`Выберите номер нужной вам операции: \n1. Сложение  \n2. Вычетание \n3. Умножение \n4. Деление \n5. Возвести в степень \n6. Cos \n7. Sin \n8. History`);
 }
 
 function firstOperand() {
-    return firstNumber = prompt(`Введите число`);
+    firstNumberResult = prompt(`Введите число`);
+
+    for (let i = 0; i < firstNumberResult.length; i++) {
+        if (firstNumberResult[i] === ' ') {
+            return false;
+        }
+    }    
+
+    firstNumber = Number(firstNumberResult);
 }
 
 function secondOperand() {
-    return secondNumber = +prompt(`Введите второе число`);
+    secondNumberResult = prompt(`Введите второе число`);
+
+    for (let i = 0; i < secondNumberResult.length; i++) {
+        if (secondNumberResult[i] === ' ') {
+            return false;
+        }
+    }    
+
+    secondNumber = Number(secondNumberResult);
 }
 
 function firstOperandPow() {
-    return firstNumber = +prompt(`Введите основание степени`);
+    firstNumberResult = prompt(`Введите основание степени`);
+
+    for (let i = 0; i < firstNumberResult.length; i++) {
+        if (firstNumberResult[i] === ' ') {
+            return false;
+        }
+    }    
+
+    firstNumber = Number(firstNumberResult);
 }
 
 function secondOperandPow() {
-    return secondNumber = +prompt(`Введите показатель степени`);
+    secondNumberResult = prompt(`Введите показатель степени`);
+
+    for (let i = 0; i < secondNumberResult.length; i++) {
+        if (secondNumberResult[i] === ' ') {
+            return false;
+        }
+    }    
+
+    secondNumber = Number(secondNumberResult);
 }
 
 function additionOperation(firstNumber, secondNumber) {
-    return result = firstNumber + secondNumber;
+    result = firstNumber + secondNumber;
 }
 
 function subtractionOperation(firstNumber, secondNumber) {
-    return result = firstNumber - secondNumber;
+    result = firstNumber - secondNumber;
 }
 
 function multiplicationOperation(firstNumber, secondNumber) {
-    return result = firstNumber * secondNumber;
+    result = firstNumber * secondNumber;
 }
 
 function divisionOperation(firstNumber, secondNumber) {
-    return result = firstNumber / secondNumber;
+    result = firstNumber / secondNumber;
 }
 
 function powOperation(firstNumber, secondNumber) {
-    return result = Math.pow(firstNumber, secondNumber);
+    result = Math.pow(firstNumber, secondNumber);
 }
 
 function cosOperation(firstNumber) {
-    return result = Math.cos(firstNumber);
+    result = Math.cos(firstNumber);
 }
 
 function sinOperation(firstNumber) {
-    return result = Math.sin(firstNumber);
+    result = Math.sin(firstNumber);
 }
 
 function callAdditionOperation() {
@@ -91,22 +125,22 @@ function doItAgainWindow() {
 
 function saveAdditionOperationInHistory() {
     operation = `Operation сложение, ${firstNumber} + ${secondNumber} = ${result}`;
-    return myArray[myArray.length] = operation;
+    myArray[myArray.length] = operation;
 }
 
 function saveSubtractionOperationInHistory() {
     operation = `Operation сложение, ${firstNumber} - ${secondNumber} = ${result}`;
-    return myArray[myArray.length] = operation;
+    myArray[myArray.length] = operation;
 }
 
 function saveMultiplicationOperationInHistory() {
     operation = `Operation сложение, ${firstNumber} * ${secondNumber} = ${result}`;
-    return myArray[myArray.length] = operation;
+    myArray[myArray.length] = operation;
 }
 
 function saveDivisionOperationInHistory() {
     operation = `Operation сложение, ${firstNumber} / ${secondNumber} = ${result}`;
-    return myArray[myArray.length] = operation;
+    myArray[myArray.length] = operation;
 }
 
 function savePowOperationInHistory() {
@@ -132,64 +166,64 @@ do {
     if (choice == 1) {
         do {
             firstOperand();
-        } while(Number(firstNumber) === 0 && !Number(firstNumber) || !firstNumber);
+        } while(firstNumberResult === null || firstNumberResult === '' || firstNumber != +firstNumberResult);
         do {
             secondOperand();
-        } while(!secondNumber);
+        } while(secondNumberResult === null || secondNumberResult === '' || secondNumber != +secondNumberResult);
         additionOperation(firstNumber, secondNumber);
         saveAdditionOperationInHistory();
         callAdditionOperation();
     } else if (choice == 2) {
         do {
             firstOperand();
-        } while(!firstNumber);
+        } while(firstNumberResult === null || firstNumberResult === '' || firstNumber != +firstNumberResult);
         do {
             secondOperand();
-        } while(!secondNumber);
+        } while(secondNumberResult === null || secondNumberResult === '' || secondNumber != +secondNumberResult);
         subtractionOperation(firstNumber, secondNumber);
         saveSubtractionOperationInHistory();
         callSubtractionOperation();
     } else if (choice == 3) {
         do {
             firstOperand();
-        } while(!firstNumber);
+        } while(firstNumberResult === null || firstNumberResult === '' || firstNumber != +firstNumberResult);
         do {
             secondOperand();
-        } while(!secondNumber);
+        } while(secondNumberResult === null || secondNumberResult === '' || secondNumber != +secondNumberResult);
         multiplicationOperation(firstNumber, secondNumber);
         saveMultiplicationOperationInHistory();
         callMultiplicationOperation();
     } else if (choice == 4) {
         do {
             firstOperand();
-        } while(!firstNumber);
+        } while(firstNumberResult === null || firstNumberResult === '' || firstNumber != +firstNumberResult);
         do {
             secondOperand();
-        } while(!secondNumber);
+        } while(secondNumberResult === null || secondNumberResult === '' || secondNumber != +secondNumberResult);
         divisionOperation(firstNumber, secondNumber);
         saveDivisionOperationInHistory();
         callDivisionOperation();
     } else if (choice == 5) {
         do {
             firstOperandPow()
-        } while(!firstNumber);
+        } while(firstNumberResult === null || firstNumberResult === '' || firstNumber != +firstNumberResult);
         do {
             secondOperandPow()
-        } while(!secondNumber);
+        } while(secondNumberResult === null || secondNumberResult === '' || secondNumber != +secondNumberResult);
         powOperation(firstNumber, secondNumber);
         savePowOperationInHistory();
         callPowOperation();
     } else if (choice == 6) {
         do {
             firstOperand();
-        } while(!firstNumber);
+        } while(firstNumberResult === null || firstNumberResult === '' || firstNumber != +firstNumberResult);
         cosOperation(firstNumber);
         saveCosOperationInHistory();
         callCosOperation();
     } else if (choice == 7) {
         do {
             firstOperand();
-        } while(!firstNumber);
+        } while(firstNumberResult === null || firstNumberResult === '' || firstNumber != +firstNumberResult);
         sinOperation(firstNumber);
         saveSinOperationInHistory();
         callSinOperation();
