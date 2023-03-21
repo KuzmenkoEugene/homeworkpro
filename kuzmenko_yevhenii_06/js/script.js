@@ -47,7 +47,7 @@ function firstOperandPow() {
     firstNumber = Number(firstNumberResult);
 }
 
-function secondOperandPow() {
+function secondOperandPow() {    
     secondNumberResult = prompt(`Введите показатель степени`);
 
     for (let i = 0; i < secondNumberResult.length; i++) {
