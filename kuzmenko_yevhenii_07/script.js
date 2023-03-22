@@ -14,7 +14,7 @@ const utils = {
     verifyNumbers: function myArrayNumbers () {
         let myArray = [];
         for (let i = 0; i < exampleArray.length; i++) {
-            if (Number(exampleArray[i])) {
+            if (typeof exampleArray[i] === "number") {
                 myArray[i] = exampleArray[i]
             }
         }
@@ -42,7 +42,4 @@ console.log(utils.reverseArray())
 console.log(utils.verifyNumbers())
 console.log(utils.getMin())
 console.log(utils.getAverage(exampleArray2))
- 
-
-
  
