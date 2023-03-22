@@ -1,4 +1,4 @@
-let exampleArray = [1, 2, 3, 'hello', undefined, 65, 32]
+let exampleArray = [10, 2, 3, 'hello', undefined, 65, 32, 1]
 
 
 const utils = {
@@ -17,9 +17,21 @@ const utils = {
             }
         }
         return myArray
+    },
+    getMin: function () {
+        let min = exampleArray[0]
+        for (let i = 0; i < exampleArray.length; i++) {
+            if (exampleArray[i] < min) {
+                min = exampleArray[i]
+            }
+        }
+        return min
     }
 }
 
 console.log(utils.reverseArray())
 console.log(utils.verifyNumbers())
+console.log(utils.getMin())
+
+
 
