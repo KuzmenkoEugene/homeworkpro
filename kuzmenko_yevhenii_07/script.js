@@ -1,54 +1,61 @@
-let exampleArray = [10, 2, 3, 'hello', undefined, 65, 32, 1, 100, 'three', 'world']
+let exampleArray = [10, 2, 3, 'hello world!', undefined, 65, 32, 1, 100, 'three', 'world'];
 
-let exampleArray2 = [1, 2, 3, 4, 5, 6, 15, 25]
+let exampleArray2 = [1, 2, 3, 4, 5, 6, 15, 25];
 
-
+let exampleString = 'EXAMPLE';
+ 
 const utils = {
-    reverseArray: function () {
-        let myArray = []
-        for (i = 0; i < exampleArray.length; i++) {
-            myArray[i] = exampleArray[(exampleArray.length - 1) - i] 
+    reverse: function (myData) {
+        let myArray = [];
+        for (let i = 0; i < myData.length; i++) {
+            myArray[i] = myData[(myData.length - 1) - i];
         }
         return myArray
     },
-    verifyNumbers: function () {
+    verifyNumbers: function (myData) { 
         let myArray = [];
-        for (let i = 0; i < exampleArray.length; i++) {
-            if (typeof exampleArray[i] === "number") {
-                myArray[i] = exampleArray[i]
+        for (let i = 0; i < myData.length; i++) {
+            if (typeof myData[i] === "number") {
+                myArray[i] = myData[i];
             }
         }
         return myArray
     },
-    getMin: function () {
-        let min = exampleArray[0]
-        for (let i = 0; i < exampleArray.length; i++) {
-            if (exampleArray[i] < min) {
-                min = exampleArray[i]
+    getMin: function (myData) {
+        let min = myData[0];
+        for (let i = 0; i < myData.length; i++) {
+            if (myData[i] < min) {
+                min = myData[i];
             }
         }
         return min
     }, 
-    getAverage: function () {
-        let averegeNumber = 0
-        for (let i = 0; i < exampleArray2.length; i++) {
-            averegeNumber += exampleArray2[i]
+    getAverage: function (myData) {
+        let averegeNumber = 0;
+        for (let i = 0; i < myData.length; i++) {
+            averegeNumber += myData[i];
         }
-        return averegeNumber / exampleArray2.length
+        return averegeNumber / myData.length
     },
-    getMaxstring: function () {
-        let myString = ''
-        for (let i = 0; i < exampleArray.length; i++) {
-            if (typeof exampleArray[i] === 'string' && exampleArray[i] > myString) {
-                myString = exampleArray[i]
+    getMaxstring: function (myData) {
+        let myString = '';
+        for (let i = 0; i < myData.length; i++) {
+            if (typeof myData[i] === 'string' && myData[i].length > myString.length) {
+                myString = myData[i];
             }
         }
         return myString
     }
 }
 
-console.log(utils.reverseArray())
-console.log(utils.verifyNumbers()) 
-console.log(utils.getMin())
-console.log(utils.getAverage())
-console.log(utils.getMaxstring())  
+console.log(utils.reverse(exampleArray));
+console.log(utils.reverse(exampleString));  
+
+console.log(utils.verifyNumbers(exampleArray));  
+
+console.log(utils.getMin(exampleArray));  
+
+console.log(utils.getAverage(exampleArray2));  
+
+console.log(utils.getMaxstring(exampleArray));  
+
