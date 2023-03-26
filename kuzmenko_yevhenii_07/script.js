@@ -7,10 +7,24 @@ let exampleString = 'EXAMPLE';
 const utils = {
     reverse: function (myData) {
         let myArray = [];
-        for (let i = 0; i < myData.length; i++) {
-            myArray[i] = myData[(myData.length - 1) - i];
+        let myString = "";
+
+        if (typeof myData === "object") {
+            for (let i = 0; i < myData.length; i++) {
+                myArray[i] = myData[(myData.length - 1) - i];
+            }    
+        } else if (typeof myData === "string") {
+            for (let i = 0; i < myData.length; i++) {
+                let current = myData[i];
+                myString = current + myString;
+            }    
         }
-        return myArray
+
+        if (typeof myData === "object") {
+            return myArray
+        } else if (typeof myData === "string") {
+            return myString
+        }
     },
     verifyNumbers: function (myData) { 
         let myArray = [];
