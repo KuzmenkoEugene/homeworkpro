@@ -3,6 +3,7 @@ let exampleArray = [10, 2, 3, 'hello world!', undefined, 65, 32, 1, 100, 'three'
 let exampleArray2 = [1, 2, 3, 4, 5, 6, 15, 25];
 
 let exampleString = 'EXAMPLE';
+
  
 const utils = {
     reverse: function (myData) {
