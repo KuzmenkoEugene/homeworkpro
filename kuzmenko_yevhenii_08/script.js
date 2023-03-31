@@ -224,6 +224,10 @@ const averageGrades = function(array) {
     return array
 }
 
+// const averageGradesVariable = averageGrades(test)
+
+// console.log(averageGradesVariable)
+
 const lowGrades = function(array) {
     let averageGradesArray = array.map((el, index, array) => {
         let myGrades = el.marks
@@ -244,13 +248,11 @@ const lowGrades = function(array) {
         return el
     })
     
-    let myList;
+    let myList = []
 
     array.forEach(function(element) {
-        if(element.marks <= 60) {
-            myList = element;
-
-            console.log(myList)
+        if(element.marks <= 50) {
+            myList.push(element)
         }
     })
     
@@ -258,14 +260,52 @@ const lowGrades = function(array) {
 }
 
 
+// const lowGradesVariable = lowGrades(test)
 
+// console.log(lowGradesVariable)
 
-// const averageGradesVariable = averageGrades(test)
+const medianGrade = function(array) {
+    let averageGradesArray = array.map((el, index, array) => {
+        let myGrades = el.marks
+        
+        myGrades.sort(function(a, b) {
+            return a - b;
+        });
 
-const lowGradesVariable = lowGrades(test)
+        let middle;
+        middle = Math.floor(el.marks.length / 2);
 
-// console.log(averageGradesVariable)
+        if(myGrades.marks % 2 === 0) {
+            return (el.marks[middle - 1] + el.marks[middle]) / 2;
+        } else {
+            return el.marks[middle]
+        }
+    })
 
-console.log(lowGradesVariable)
+    array.map((el, index) => {
+        el.marks = averageGradesArray[index]
+        return el
+    })
+    
+    return array
+}
 
+// const medianGradeCase = medianGrade(test)
 
+// console.log(medianGradeCase)
+
+const newStudent = function(array) {
+    let newPerson = {
+        name: 'name',
+        specialty: 'specialty',
+        marks: 0
+    }
+
+    array.push(newPerson)
+
+    return array
+}
+
+// const newStudentCase = newStudent(test)
+
+// console.log(newStudentCase)
