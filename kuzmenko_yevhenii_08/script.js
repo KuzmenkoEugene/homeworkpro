@@ -216,16 +216,15 @@ const averageGrades = function(array) {
         return listGrades;
     })
 
-    array.map((el, index) => {
+    let newArray = array.map((el, index) => {
         el.marks = averageGradesArray[index]
         return el
     })
     
-    return array
+    return newArray
 }
 
 // const averageGradesVariable = averageGrades(test)
-
 // console.log(averageGradesVariable)
 
 const lowGrades = function(array) {
@@ -243,14 +242,14 @@ const lowGrades = function(array) {
         return listGrades;
     })
 
-    array.map((el, index) => {
+    let myNewArray = array.map((el, index) => {
         el.marks = averageGradesArray[index]
         return el
     })
     
     let myList = []
 
-    array.forEach(function(element) {
+    myNewArray.forEach(function(element) {
         if(element.marks <= 50) {
             myList.push(element)
         }
@@ -261,7 +260,6 @@ const lowGrades = function(array) {
 
 
 // const lowGradesVariable = lowGrades(test)
-
 // console.log(lowGradesVariable)
 
 const medianGrade = function(array) {
@@ -282,16 +280,15 @@ const medianGrade = function(array) {
         }
     })
 
-    array.map((el, index) => {
+    let myNewArray = array.map((el, index) => {
         el.marks = averageGradesArray[index]
         return el
     })
     
-    return array
+    return myNewArray
 }
 
 // const medianGradeCase = medianGrade(test)
-
 // console.log(medianGradeCase)
 
 const newStudent = function(array) {
@@ -307,5 +304,46 @@ const newStudent = function(array) {
 }
 
 // const newStudentCase = newStudent(test)
-
 // console.log(newStudentCase)
+
+const listStudents = function(array) {
+    averageGrades(array)
+
+    let myNewArray = []
+
+    const sortedArray = array.slice().sort( (user1, user2) => {
+        if (user1.marks > user2.marks) return -1
+        return 1
+    })
+
+    sortedArray.forEach((user, index) => {
+        myNewArray[index] = `${(index + 1)}. ${user.name} - ${user.marks}`
+    })
+
+    return myNewArray
+}
+ 
+// const listStudentsCase = listStudents(test)
+// console.log(listStudentsCase)
+
+const listTop = function(array) {
+    averageGrades(array)
+
+    let myNewArray = []
+
+    const sortedArray = array.slice().sort( (user1, user2) => {
+        if (user1.marks > user2.marks) return -1
+        return 1
+    })
+
+    sortedArray.forEach((user, index) => {
+        myNewArray[index] = `${(index + 1)}. ${user.name} - ${user.marks}`
+    })
+
+    myNewArray.splice(5)
+
+    return myNewArray
+}
+
+// const topFive = listTop(test)
+// console.log(topFive)
