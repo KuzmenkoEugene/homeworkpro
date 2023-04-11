@@ -21,22 +21,43 @@ function createStack() {
 // stack.getStack()
 
 // stack.pop()
-//  stack.getStack()
+// stack.getStack()
 
 
-function isBetween() {
-    let min = +prompt('От')
-    let max = +prompt('До')
+function isBetween(min, max) {
     if (min < max && min <= 9 && max <= 10) {
         return function(number) {
             return number >= min && number <= max;
         }
-    } else {
-        return isBetween()
+    } else if(min => max && max <= min) {
+        return console.log('Вы ввели не число или первое число равно/больше второго')
     }
 }
  
-let myNewArrayNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].filter(isBetween())
-console.log(myNewArrayNumber)
+// let myNewArrayNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].filter(isBetween(3, 5))
+// console.log(myNewArrayNumber)
 
-function calculate()
+
+function calculate(operation) {
+  return function(firstNumber, secondNumber) {
+    if (typeof firstNumber !== "number" || typeof secondNumber !== "number") {
+      return console.log('Вы ввели не число');
+    }
+    if (operation === "+") {
+      return firstNumber + secondNumber;
+    } else if (operation === "-") {
+      return firstNumber - secondNumber;
+    } else if (operation === "*") {
+      return firstNumber * secondNumber;
+    } else if (operation === "/") {
+      return firstNumber / secondNumber;
+    } else if (operation === "pow") {
+      return Math.pow(firstNumber, secondNumber);
+    } else {
+      return console.log('Нет такой операции.');
+    }
+  };
+}
+
+// const result = calculate("pow")(5, 4);
+// console.log(result); 
