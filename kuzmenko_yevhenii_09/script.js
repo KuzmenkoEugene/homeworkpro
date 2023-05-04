@@ -23,21 +23,50 @@ let obj = {
       e: 'N',
     }
 }
- 
+
+
 const recursion = (obj) => {
   let myWord = '';
   for (let key in obj) {
     if (typeof obj[key] === 'string') {
-      myWord += obj[key].replace(/[^A-Z]/g, '');
-    } else if (typeof obj[key] === 'object') {  
-      myWord += recursion(obj[key]);
-    }   
+      myWord += obj[key].replace(/[^A-Z]/g, '')
+    } else if (typeof obj[key] === 'object') {
+      myWord += recursion(obj[key])
+    }
   }
-  return myWord;
+
+  return myWord
 }
 
-const myRecursion = recursion(obj);
-console.log(myRecursion);
+const myRecursion = recursion(obj)
+console.log(myRecursion)
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+// const recursion = (obj) => {
+//   let myWord = '';
+//   for (let key in obj) {
+//     if (typeof obj[key] === 'string') {
+//       myWord += obj[key].replace(/[^A-Z]/g, '');
+//     } else if (typeof obj[key] === 'object') {  
+//       myWord += recursion(obj[key]);
+//     }   
+//   }
+//   return myWord;
+// }
+
+// const myRecursion = recursion(obj);
+// console.log(myRecursion);
 
 
 

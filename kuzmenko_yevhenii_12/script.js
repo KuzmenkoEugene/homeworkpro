@@ -1,6 +1,6 @@
 const button = document.getElementById('buttonId')
 
-const myContent = document.getElementsByClassName('content')[0]
+const myContent = document.getElementsByClassName('content__list')[0]
 
 const titleInput = document.getElementById('tittleText')
 
@@ -8,51 +8,54 @@ const textInput = document.getElementById('mainText')
 
 const selectPriority = document.getElementById('priority')
 
-let i = 0
-function createElement() {
-    
-    i++
+button.addEventListener('click', () => {
+    const item = document.createElement('li')
+    item.classList.add("content__item");
+
+    const checkboxItem = document.createElement('input')
+    checkboxItem.setAttribute('type', 'checkbox')
+    checkboxItem.addEventListener('change', () => {
+        if (checkboxItem.checked === true) {
+            myTitle.classList.add('line')
+            myText.classList.add('line')
+        } else { 
+            myTitle.classList.add('none__line')
+            myText.classList.add('none__line')
+        }
+    })
+
+    const doneOperation = document.createElement('span')
+    doneOperation.innerText = 'cross out?'
+
+    const myTitle = document.createElement('span')
+    myTitle.innerText = titleInput.value
+    myTitle.classList.add("content__title");
+
+    const myText = document.createElement('span')
+    myText.innerText = textInput.value
+
+    const deleteButton = document.createElement('button')
+    deleteButton.innerText = 'Delete'
+
+    item.append(myTitle, myText, deleteButton, doneOperation, checkboxItem)
+
     if (selectPriority.value === 'Low') {
-        newDiv = `<div class="content__item content__item-low"> 
-        <p class="item__title"> ${titleInput.value} № ${i} </p>
-        <span class="item__text"> ${textInput.value} </span>
-        </div>`;
+        item.style.background = 'rgb(142, 241, 142)'
     } else if (selectPriority.value === 'Mid') {
-        newDiv = `<div class="content__item content__item-mid"> 
-        <p class="item__title"> ${titleInput.value} № ${i}  </p>
-        <span class="item__text"> ${textInput.value} </span>
-        </div>`;
+        item.style.background = 'rgb(238, 238, 153)'
     } else if (selectPriority.value === 'High') {
-        newDiv = `<div class="content__item content__item-high"> 
-        <p class="item__title"> ${titleInput.value} № ${i}  </p>
-        <span class="item__text"> ${textInput.value} </span>
-        </div>`;
+        item.style.background = 'rgb(241, 145, 145)'
     }    
 
-    const deleteItem = document.createElement('button')
-    deleteItem.innerText = 'Delete'
+    myContent.appendChild(item);
 
-    myContent.innerHTML = myContent.innerHTML + newDiv;
-
-    const myContentList = document.getElementsByClassName('content')
-
-    myContentList[0].append(deleteItem)
-    
-    const liElement = document.getElementsByClassName('content__item')
-    deleteItem.addEventListener('click', () => {
-        liElement[0].remove()
+    deleteButton.addEventListener('click', () => {
+        item.remove();
     })
-}
-
-button.onclick = () => {
-
-    createElement()
 
     titleInput.value = ''
     textInput.value = ''
-}
-
-
+})
 
 
 
