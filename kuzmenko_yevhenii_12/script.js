@@ -18,10 +18,16 @@ button.addEventListener('click', () => {
         if (checkboxItem.checked === true) {
             myTitle.classList.add('line')
             myText.classList.add('line')
-        } else { 
-            myTitle.classList.add('none__line')
-            myText.classList.add('none__line')
+        } else  { 
+            myTitle.classList.remove('line')
+            myText.classList.remove('line')  
         }
+
+        deleteButton.addEventListener('click', () => {
+            if (checkboxItem.checked) {
+                item.remove();
+            }
+        });
     })
 
     const doneOperation = document.createElement('span')
@@ -49,14 +55,6 @@ button.addEventListener('click', () => {
 
     myContent.appendChild(item);
 
-    deleteButton.addEventListener('click', () => {
-        item.remove();
-    })
-
     titleInput.value = ''
     textInput.value = ''
 })
-
-
-
-
