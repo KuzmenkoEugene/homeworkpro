@@ -52,14 +52,13 @@ document.getElementById('password').addEventListener('blur', () => {
 
 function checkEmail() {
     let myValue = emailInput.value
-    
 
-    if(myValue.includes("@")) {
-        errorMessageEmail.textContent = ''
-        emailInput.style.color = 'black'
-    } else {
+    if (myValue[0] === '@' || myValue[1] === '@' || !myValue.includes("@")) {
         errorMessageEmail.textContent = 'Wrong email!'
         emailInput.style.color = 'red'
+    } else {
+        errorMessageEmail.textContent = ''
+        emailInput.style.color = 'black'
     }
     
 }
