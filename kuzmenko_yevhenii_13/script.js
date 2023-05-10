@@ -2,6 +2,7 @@ const emailInput = document.getElementById('email')
 const passwordInput = document.getElementById('password')
 const errorMessageEmail = document.getElementById('errorEmail')
 const errorMessagePassword = document.getElementById('errorPassword')
+const errorMessageText = document.getElementById('errorText')
 const button = document.getElementById('btn')
 
 const person = {
@@ -13,6 +14,8 @@ button.addEventListener('click', (e) => {
     e.preventDefault()
     if(person.email === emailInput.value && person.password === passwordInput.value) {
         window.location.replace('https://www.google.com')
+    } else {
+        errorMessageText.textContent = 'No user'
     }
 })
 
