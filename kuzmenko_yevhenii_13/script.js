@@ -34,16 +34,8 @@ disabledButton()
 
 //
 
-document.getElementById('email').addEventListener('focus', () => {
-    
-})
-
 document.getElementById('email').addEventListener('blur', () => {
     checkEmail()
-})
-
-document.getElementById('password').addEventListener('focus', () => {
-    
 })
 
 document.getElementById('password').addEventListener('blur', () => {
@@ -53,7 +45,7 @@ document.getElementById('password').addEventListener('blur', () => {
 function checkEmail() {
     let myValue = emailInput.value
 
-    if (myValue[0] === '@' || myValue[1] === '@' || myValue[2] === '@' || !myValue.includes("@") || !myValue.includes(".")) {
+    if (myValue[0] === '@' || myValue[1] === '@' || myValue[2] === '@' || !myValue.includes("@") || !myValue.includes(".") || myValue[myValue.length - 1] === '.' || myValue[myValue.length - 2] === '.') {
         errorMessageEmail.textContent = 'Wrong email!'
         emailInput.style.color = 'red'
     } else {
