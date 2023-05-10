@@ -4,6 +4,18 @@ const errorMessageEmail = document.getElementById('errorEmail')
 const errorMessagePassword = document.getElementById('errorPassword')
 const button = document.getElementById('btn')
 
+const person = {
+    email: 'admin@gmail.com',
+    password: '12345678'
+}
+
+button.addEventListener('click', (e) => {
+    e.preventDefault()
+    if(person.email === emailInput.value && person.password === passwordInput.value) {
+        window.location.replace('https://www.google.com')
+    }
+})
+
 function disabledButton() {
     if (emailInput.value === '') {
         button.disabled = true;
