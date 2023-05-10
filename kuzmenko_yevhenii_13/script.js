@@ -15,6 +15,7 @@ button.addEventListener('click', (e) => {
     if(person.email === emailInput.value && person.password === passwordInput.value) {
         window.location.replace('https://www.google.com')
     } else {
+        passwordInput.value = ''
         errorMessageText.textContent = 'No user'
     }
 })
