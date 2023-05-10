@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+.error {
+    font-size: 20px;
+    color: red;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.block {
+    width: 15%;
+    padding: 3%;
+}
