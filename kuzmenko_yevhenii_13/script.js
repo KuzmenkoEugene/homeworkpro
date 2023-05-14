@@ -32,8 +32,6 @@ emailInput.addEventListener('input', disabledButton);
 
 disabledButton()
 
-//
-
 document.getElementById('email').addEventListener('blur', () => {
     checkEmail()
 })
@@ -64,6 +62,4 @@ function checkPassword() {
         passwordInput.style.color = 'black'
     }
 }
-
-
 
