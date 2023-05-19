@@ -1,0 +1,27 @@
+.wrap-main {
+    width: 100%;
+    padding: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    display: block;
+    width: 50%;
+}
+
+.interface {
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: antiquewhite;
+}
+
+.interface_direction,
+.interface_remove,
+.interface_openfirstslide {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
