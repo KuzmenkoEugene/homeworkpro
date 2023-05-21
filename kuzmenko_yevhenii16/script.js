@@ -20,19 +20,48 @@ buttonRemove.addEventListener('click', () => {
     lastElement.remove()
 })
 
-buttonClickLeft.addEventListener('click', () => {
-    let item = myContent.children[indexItem]
-    item.classList.remove('active')
-    indexItem--
-    item = myContent.children[indexItem]
-    item.classList.add('active')
+console.dir(myContent.children)
 
-    let itemIndecators = myIndecators.children[indexIndecator]
-    itemIndecators.classList.remove('active')
-    indexIndecator--
-    itemIndecators = myIndecators.children[indexIndecator]
-    itemIndecators.classList.add('active')
-})
+buttonClickLeft.addEventListener('click', () => {
+    let items = myContent.getElementsByClassName('active');
+    let itemsIndecator = myIndecators.getElementsByClassName('active');
+
+    const elements = document.querySelectorAll(".carousel-item");
+    const firstElement = elements[0];
+
+    console.dir(myContent.children)
+
+    if (firstElement.classList.contains("active")) {
+        for (let i = 0; i < items.length; i++) {
+            items[i].classList.remove('active');
+        }
+        indexItem = elements.length - 1;
+        let item = myContent.children[indexItem];
+        item.classList.add('active');
+
+        for (let i = 0; i < itemsIndecator.length; i++) {
+            itemsIndecator[i].classList.remove('active');
+        }
+        indexIndecator = elements.length - 1;
+        let myitem = myIndecators.children[indexIndecator];
+        myitem.classList.add('active');
+    } else {
+        for (let i = 0; i < items.length; i++) {
+            items[i].classList.remove('active');
+        }
+        indexItem--;
+        let item = myContent.children[indexItem];
+        item.classList.add('active');
+
+        for (let i = 0; i < itemsIndecator.length; i++) {
+            itemsIndecator[i].classList.remove('active');
+        }
+        indexIndecator--;
+        let myitem = myIndecators.children[indexIndecator];
+        myitem.classList.add('active');
+    }
+});
+
 
 buttonClickRight.addEventListener('click', () => {
     let items = myContent.getElementsByClassName('active');
@@ -89,6 +118,30 @@ buttonOpenFirstSlide.addEventListener('click', () => {
         let myitem = myIndecators.children[indexIndecator = 0]
         myitem.classList.add('active')
 })
+
+buttonOpenLastSlide.addEventListener('click', () => {
+    let items = myContent.getElementsByClassName('active');
+    let itemsIndecator = myIndecators.getElementsByClassName('active');
+
+    const elements = document.querySelectorAll(".carousel-item");
+    const lastElement = elements[elements.length - 1];
+
+    for (let i = 0; i < items.length; i++) {
+        items[i].classList.remove('active');
+        }
+        lastElement.classList.add('active')
+
+    const elementsIndecator = document.querySelectorAll(".button-carousel");
+    const lastElementIndecator = elementsIndecator[elements.length - 1];
+
+    for (let i = 0; i < itemsIndecator.length; i++) {
+        itemsIndecator[i].classList.remove('active');
+        }
+        lastElementIndecator.classList.add('active')
+})
+
+
+
 
 
 
