@@ -49,14 +49,16 @@ buttonClickLeft.addEventListener('click', () => {
         for (let i = 0; i < items.length; i++) {
             items[i].classList.remove('active');
         }
-        indexItem--;
-        let item = myContent.children[indexItem];
-        item.classList.add('active');
 
         for (let i = 0; i < itemsIndecator.length; i++) {
             itemsIndecator[i].classList.remove('active');
         }
+
         indexIndecator--;
+        indexItem--;
+
+        let item = myContent.children[indexItem];
+        item.classList.add('active');
         let myitem = myIndecators.children[indexIndecator];
         myitem.classList.add('active');
     }
@@ -126,6 +128,9 @@ buttonOpenLastSlide.addEventListener('click', () => {
     const elements = document.querySelectorAll(".carousel-item");
     const lastElement = elements[elements.length - 1];
 
+    indexItem = myContent.children.length - 1
+    indexIndecator = 3;
+
     for (let i = 0; i < items.length; i++) {
         items[i].classList.remove('active');
         }
@@ -138,10 +143,6 @@ buttonOpenLastSlide.addEventListener('click', () => {
         itemsIndecator[i].classList.remove('active');
         }
         lastElementIndecator.classList.add('active')
+
+        
 })
-
-
-
-
-
-
