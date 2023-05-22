@@ -3,7 +3,6 @@ class Slider {
         this.yourSlider = yourSlider;
         this.indexItem = 0;
         this.indexIndecator = 0;
-        this.slides = [];
         this.buttonClickLeft = document.getElementById('buttonLeft');
         this.buttonClickRight = document.getElementById('buttonRight');
         this.buttonOpenFirstSlide = document.getElementById('openFirstSlide');
