@@ -8,11 +8,44 @@ const myIndecators = document.getElementsByClassName('carousel-indicators')[0]
 
 const secondaryButton1 = document.getElementById('carouselButtonLeft');
 const secondaryButton2 = document.getElementById('carouselButtonRight');
+const buttonDeleteNmbrs = document.getElementById('buttonDeleteNumber');
+const buttonOpenNmbr = document.getElementById('sliderOpenNumber');
+
 
 let indexItem = 0
 let indexIndecator = 0
 
 const elements = document.querySelectorAll(".carousel-item");
+
+buttonOpenNmbr.addEventListener('click', (e) => {
+    e.preventDefault()
+    let items = myContent.getElementsByClassName('active');
+    let itemsIndecator = myIndecators.getElementsByClassName('active');
+
+    let itemSlide = openSlideNumber.value
+    itemSlide--
+    for (let i = 0; i < items.length; i++) {
+        items[i].classList.remove('active');
+    }
+    indexItem = elements.length - 1;
+    let item = myContent.children[itemSlide];
+    item.classList.add('active');
+
+    for (let i = 0; i < itemsIndecator.length; i++) {
+        itemsIndecator[i].classList.remove('active');
+    }
+    indexIndecator = elements.length - 1;
+    let myitem = myIndecators.children[itemSlide];
+    myitem.classList.add('active');
+})
+
+buttonDeleteNmbrs.addEventListener('click', (e) => {
+    e.preventDefault()
+    let itemSlide = mainNumber.value
+    const elements = document.querySelectorAll(".carousel-item");
+    itemSlide--
+    elements[itemSlide].remove()
+})
 
 buttonRemove.addEventListener('click', () => {
     const elements = document.querySelectorAll(".carousel-item");
@@ -143,6 +176,4 @@ buttonOpenLastSlide.addEventListener('click', () => {
         itemsIndecator[i].classList.remove('active');
         }
         lastElementIndecator.classList.add('active')
-
-        
 })
