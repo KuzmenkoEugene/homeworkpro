@@ -20,7 +20,9 @@
 
 .interface_direction,
 .interface_remove,
-.interface_openfirstslide {
+.interface_openfirstslide,
+.interface_slideremove,
+.interface_sliderOpenNmbr {
     display: flex;
     justify-content: center;
     gap: 5px;
