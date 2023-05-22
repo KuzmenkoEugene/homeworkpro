@@ -24,3 +24,9 @@
     gap: 5px;
 }
 
+.interface_form {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
