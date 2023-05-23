@@ -12,6 +12,7 @@ class Slider {
         this.buttonOpenNmbr = document.getElementById('sliderOpenNumber');
         this.buttonDeleteNmbrs = document.getElementById('buttonDeleteNumber');
         this.buttonRemove = document.getElementById('removelast')
+        this.buttonAddSlide = document.getElementById('addMySlider')
     }
 
     nextSlide() {
@@ -124,12 +125,37 @@ class Slider {
         })
     }
 
-    addSlide(title, description) {
+    addSlide() {
+        this.buttonAddSlide.addEventListener('click', (e) => {
+            e.preventDefault()
+            let myTitle = addTitleFormySlider.value;
+            let myText = addDescriptionFormySlider.value;
 
+            const item = document.createElement('div')
+            item.classList.add('carousel-item')
+            item.innerHTML = `<img src="https://htmlcolorcodes.com/assets/images/colors/gray-color-solid-background-1920x1080.png" class="d-block w-100" alt="..."> <div class="carousel-caption d-none d-md-block"><h5>${myTitle}</h5><p>${myText}</p></div>`
+
+            const indicator = document.createElement("button");
+            indicator.type = "button";
+            indicator.setAttribute("data-bs-target", "#carouselExampleCaptions");
+            indicator.setAttribute("data-bs-slide-to", `${this.myIndecators.children.length}`);
+            indicator.setAttribute("aria-label", `Slide ${this.myIndecators.children.length}`);
+                        
+            this.myContent.appendChild(item)
+ 
+            this.myIndecators.appendChild(indicator)
+
+            addDescriptionFormySlider.value = '';
+            addTitleFormySlider.value = '';
+        })
     }
 
-    insertSlide(number, title, description) {
+    insertSlide() {
+        this.buttonAddSlide.addEventListener('click', (e) => {
+            e.preventDefault()
+            
 
+        })
     }
 
     removeLastSlide() {
@@ -164,7 +190,7 @@ slider.prevSlide();
 slider.lastSlide()
 slider.firstSlide();
 slider.openSlideByIndex()
-
-
+slider.addSlide()
+slider.insertSlide()
 slider.removeLastSlide() 
 slider.removeSlide()
