@@ -13,6 +13,7 @@ class Slider {
         this.buttonDeleteNmbrs = document.getElementById('buttonDeleteNumber');
         this.buttonRemove = document.getElementById('removelast')
         this.buttonAddSlide = document.getElementById('addMySlider')
+        this.sliderPosition = document.getElementById('addPosition')
     }
 
     nextSlide() {
@@ -128,33 +129,63 @@ class Slider {
     addSlide() {
         this.buttonAddSlide.addEventListener('click', (e) => {
             e.preventDefault()
-            let myTitle = addTitleFormySlider.value;
-            let myText = addDescriptionFormySlider.value;
 
-            const item = document.createElement('div')
-            item.classList.add('carousel-item')
-            item.innerHTML = `<img src="https://htmlcolorcodes.com/assets/images/colors/gray-color-solid-background-1920x1080.png" class="d-block w-100" alt="..."> <div class="carousel-caption d-none d-md-block"><h5>${myTitle}</h5><p>${myText}</p></div>`
+            let position = this.sliderPosition
 
-            const indicator = document.createElement("button");
-            indicator.type = "button";
-            indicator.setAttribute("data-bs-target", "#carouselExampleCaptions");
-            indicator.setAttribute("data-bs-slide-to", `${this.myIndecators.children.length}`);
-            indicator.setAttribute("aria-label", `Slide ${this.myIndecators.children.length}`);
+            if (position.value === "") {
+
+                let myTitle = addTitleFormySlider.value;
+                let myText = addDescriptionFormySlider.value;
+
+                const item = document.createElement('div')
+                item.classList.add('carousel-item')
+                item.innerHTML = `<img src="https://htmlcolorcodes.com/assets/images/colors/gray-color-solid-background-1920x1080.png" class="d-block w-100" alt="..."> <div class="carousel-caption d-none d-md-block"><h5>${myTitle}</h5><p>${myText}</p></div>`
+
+                const indicator = document.createElement("button");
+                indicator.type = "button";
+                indicator.setAttribute("data-bs-target", "#carouselExampleCaptions");
+                indicator.setAttribute("data-bs-slide-to", `${this.myIndecators.children.length}`);
+                indicator.setAttribute("aria-label", `Slide ${this.myIndecators.children.length}`);
                         
-            this.myContent.appendChild(item)
+                this.myContent.appendChild(item)
  
-            this.myIndecators.appendChild(indicator)
+                this.myIndecators.appendChild(indicator)
 
-            addDescriptionFormySlider.value = '';
-            addTitleFormySlider.value = '';
+                addDescriptionFormySlider.value = '';
+                addTitleFormySlider.value = '';
+            }
         })
     }
 
     insertSlide() {
         this.buttonAddSlide.addEventListener('click', (e) => {
             e.preventDefault()
-            
 
+            let position = this.sliderPosition
+
+            if (position.value <= this.myContent.children.length + 1 && position.value != 0) {
+
+                let myTitle = addTitleFormySlider.value;
+                let myText = addDescriptionFormySlider.value;
+
+                const item = document.createElement('div')
+                item.classList.add('carousel-item')
+                item.innerHTML = `<img src="https://htmlcolorcodes.com/assets/images/colors/gray-color-solid-background-1920x1080.png" class="d-block w-100" alt="..."> <div class="carousel-caption d-none d-md-block"><h5>${myTitle}</h5><p>${myText}</p></div>`
+
+                const indicator = document.createElement("button");
+                indicator.type = "button";
+                indicator.setAttribute("data-bs-target", "#carouselExampleCaptions");
+                indicator.setAttribute("data-bs-slide-to", `${this.myIndecators.children.length}`);
+                indicator.setAttribute("aria-label", `Slide ${this.myIndecators.children.length}`);
+                        
+                this.myContent.insertBefore(item, this.myContent.children[position.value - 1]);
+ 
+                this.myIndecators.appendChild(indicator);
+
+                addDescriptionFormySlider.value = '';
+                addTitleFormySlider.value = '';
+                position.value = '';
+            }
         })
     }
 
