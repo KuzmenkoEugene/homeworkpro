@@ -1,0 +1,34 @@
+body {
+    background: #eeeeee;
+}
+
+.main {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.my_list {
+    width: 50%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background: whitesmoke;
+    border-radius: 10px;
+}
+
+.my_list__person {
+    width: 80%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
