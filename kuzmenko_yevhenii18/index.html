@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kuzmenko Yevhenii 18</title>
+    <title>Kuzmenko Yevhenii 18</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="css.css">
     <script src="script.js" async></script>
@@ -14,8 +14,25 @@
         <div class="my_list" id="myCards">
         </div>
         <div class="my_list__button">
-            <button id="buttonPrevious">previous</button>
-            <button id="buttonNext">next</button>
+            <button class="button__previous" disabled id="buttonPrevious">previous</button>
+            <button class="button__next" id="buttonNext">next</button>
+        </div>
+        <div class="form_for_new_person">
+            <form class="interface_form">
+                <label for="addFirstNamePerson">First Name:</label>
+                <input class="form_for_new_person__firstname" type="text" id="addFirstNamePerson" name="auto" label="Your First Name">
+                <label for="addLastNamePerson">Last Name:</label>
+                <input class="form_for_new_person__lastname" type="text" id="addLastNamePerson" name="auto" label="Your Last name">
+                <label for="addYourEmail">Your email:</label>
+                <input class="form_for_new_person__email" type="text" id="addYourEmail" name="auto" label="Your email">
+                <label for="addYourJob">Your job:</label>
+                <input class="form_for_new_person__email" type="text" id="addYourJob" name="auto" label="Your email">
+                <div class="form_for_new_person__button-wrap">
+                    <button class="form_for_new_person__button" id="addNewPersonButton">add</button>
+                </div>
+            </form>    
+        </div>
+        <div class="my_newlist" id="myNewCards">
         </div>
     </div>
 </body>
