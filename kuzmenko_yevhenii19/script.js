@@ -97,6 +97,7 @@ class MyPersonsList {
 
                 let deletePerson = document.createElement('button')
                 deletePerson.classList.add('person__delete')
+                // deletePerson.getAttribute('personDelete')
                 deletePerson.innerText = 'Delete user'
                 item.appendChild(deletePerson)
 
@@ -116,8 +117,16 @@ class MyPersonsList {
                 lastnNamePerson.innerText = lastnNamePersonText.replace(/"/g, '')
 
                 let idPersonText = JSON.stringify(myList.data[index].id);
+                let numberId = idPersonText;
                 idPersonText = "ID: " + idPersonText;
                 idPerson.innerText = idPersonText
+
+                deletePerson.addEventListener('click', () => {
+                    this.fetchDelete(numberId)
+                    if(this.xhr.status === 204) {
+                        item.remove()
+                    }
+                })
                 
             }
     }
@@ -158,15 +167,10 @@ class MyPersonsList {
         this.buttonClickNext.addEventListener('click', this.clickNext)
     }
 
-    fetchDelete() {
+    fetchDelete(numberId) {
         this.xhr = new XMLHttpRequest();
-        this.xhr.open('DELETE', `https://reqres.in//api/users/2`, false);
+        this.xhr.open('DELETE', `https://reqres.in/api/users/${numberId}`, false);
         this.xhr.send()
-    }
-
-    deleteUser() {
-        fetchDelete() 
-
     }
 }
 
