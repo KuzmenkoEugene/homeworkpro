@@ -6,9 +6,7 @@ class MyPersonsList {
         this.buttonClickPrevious = document.getElementById('buttonPrevious');
         this.buttonClickNext = document.getElementById('buttonNext');
         this.removeCards = document.getElementById('my_list__person')
-        this.xhr = new XMLHttpRequest();
         this.globalIndex = 1;
-        this.quantityIndecator = this.contentList.children.length;
         this.emailAdd = document.getElementById('addYourEmail');
         this.passwordAdd = document.getElementById('addYourPassword');
         this.logInButton = document.getElementById('addNewPersonButton')
@@ -16,31 +14,36 @@ class MyPersonsList {
         this.buttons = document.getElementsByClassName('my_list__button')[0]
     }
 
-    logIn() {
+    fetchPost() {
+        this.xhr = new XMLHttpRequest();
+        this.xhr.open('POST', `https://reqres.in/api/login`, false);
+        this.xhr.setRequestHeader('Content-type', 'application/json')
+    }
+
+    displayNone() {
         this.contentList.style.display = 'none';
         this.buttons.style.display = 'none';
+    }
+
+    logIn() {
+        this.fetchPost() 
+        this.displayNone()
+        
 
         this.logInButton.addEventListener('click', (e) => {
             e.preventDefault()
-            
-            let xhr = new XMLHttpRequest();
-
-            xhr.open('POST', `https://reqres.in/api/login`, false);
 
             let user = {
                 email: `${this.emailAdd.value}`,
                 password: `${this.passwordAdd.value}`
             }
 
-            xhr.setRequestHeader('Content-type', 'application/json')
-
-            xhr.send(JSON.stringify(user))
-
-            let data = JSON.parse(xhr.response)
+            this.xhr.send(JSON.stringify(user))
+            let data = JSON.parse(this.xhr.response)
 
             if(data.token) {
-                this.logInForm.remove()
 
+                this.logInForm.remove()
                 this.contentList.style.display = '';
                 this.buttons.style.display = '';
             }
@@ -50,9 +53,14 @@ class MyPersonsList {
         })
     }
 
+    fetchGet() {
+        this.xhr = new XMLHttpRequest();
+        this.xhr.open('GET', `https://reqres.in/api/users?page=${this.globalIndex}`, false);
+        this.xhr.send()
+    }
+
     creatCards() {
-            this.xhr.open('GET', `https://reqres.in/api/users?page=${this.globalIndex}`, false);
-            this.xhr.send()
+            this.fetchGet()
 
             let myList = JSON.parse(this.xhr.response)
 
@@ -97,7 +105,6 @@ class MyPersonsList {
                 lastnNamePersonText = "Last name: " + lastnNamePersonText;
                 lastnNamePerson.innerText = lastnNamePersonText.replace(/"/g, '')
 
-
                 let idPersonText = JSON.stringify(myList.data[index].id);
                 idPersonText = "ID: " + idPersonText;
                 idPerson.innerText = idPersonText
@@ -115,31 +122,30 @@ class MyPersonsList {
 
     click = () => {
 
-        this.buttonClickPrevious.addEventListener('click', () => {
+        this.clickPrevious = () => {
             this.remove()
-
             this.globalIndex--;
-
             this.creatCards()
 
             if(this.globalIndex === 1) {
                 this.buttonClickPrevious.disabled = true;
                 this.buttonClickNext.disabled = false;
             }
-        })
+        }
 
-        this.buttonClickNext.addEventListener('click', () => {
+        this.clickNext = () => {
             this.remove()
-
             this.globalIndex++;
-
             this.creatCards()
 
             if(this.globalIndex === 2) {
                 this.buttonClickPrevious.disabled = false;
                 this.buttonClickNext.disabled = true;
             }
-        })
+        }
+
+        this.buttonClickPrevious.addEventListener('click', this.clickPrevious)
+        this.buttonClickNext.addEventListener('click', this.clickNext)
     }
 }
 
