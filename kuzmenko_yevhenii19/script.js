@@ -90,6 +90,16 @@ class MyPersonsList {
                 idPerson.classList.add('person__id')
                 item.appendChild(idPerson)
 
+                let editPerson = document.createElement('button')
+                editPerson.classList.add('person__edit')
+                editPerson.innerText = 'Edit user'
+                item.appendChild(editPerson)
+
+                let deletePerson = document.createElement('button')
+                deletePerson.classList.add('person__delete')
+                deletePerson.innerText = 'Delete user'
+                item.appendChild(deletePerson)
+
                 let avatarPersonUrl = JSON.stringify(myList.data[index].avatar);
                 avatarPerson.src = avatarPersonUrl.replace(/"/g, '')
 
@@ -146,6 +156,17 @@ class MyPersonsList {
 
         this.buttonClickPrevious.addEventListener('click', this.clickPrevious)
         this.buttonClickNext.addEventListener('click', this.clickNext)
+    }
+
+    fetchDelete() {
+        this.xhr = new XMLHttpRequest();
+        this.xhr.open('DELETE', `https://reqres.in//api/users/2`, false);
+        this.xhr.send()
+    }
+
+    deleteUser() {
+        fetchDelete() 
+
     }
 }
 
