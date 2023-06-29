@@ -48,6 +48,8 @@ class MyPersonsList {
                     this.logInForm.remove()
                     this.contentList.style.display = '';
                     this.buttons.style.display = '';
+
+                    this.creatCards()
                 }
             }
 
@@ -106,14 +108,17 @@ class MyPersonsList {
                 avatarPerson.src = avatarPersonUrl.replace(/"/g, '')
     
                 let emailPersonText = JSON.stringify(myList.data[index].email);
+                let emailPersonTextForEdit = emailPersonText
                 emailPersonText = "Email: " + emailPersonText;
                 emailPerson.innerText = emailPersonText.replace(/"/g, '')
     
                 let firstNamePersonText = JSON.stringify(myList.data[index].first_name);
+                let firstNamePersonTextForEdit = firstNamePersonText
                 firstNamePersonText = "First name: " + firstNamePersonText;
                 firstNamePerson.innerText = firstNamePersonText.replace(/"/g, '')
     
                 let lastnNamePersonText = JSON.stringify(myList.data[index].last_name);
+                let lastnNamePersonTextForEdit = lastnNamePersonText
                 lastnNamePersonText = "Last name: " + lastnNamePersonText;
                 lastnNamePerson.innerText = lastnNamePersonText.replace(/"/g, '')
     
@@ -146,7 +151,7 @@ class MyPersonsList {
 
                     editPersonButton.addEventListener('click', (e) => {
                         e.preventDefault()
-                        let editEmailValue = document.getElementById('emailEdit');
+                        let editEmailValue = document.getElementById('emailEdit')
                         let editFirstNameValue = document.getElementById('firstNameEdit');
                         let editLastNameValue = document.getElementById('lastNameEdit');
                         let editAvatarValue = document.getElementById('avatarEdit');
@@ -169,10 +174,10 @@ class MyPersonsList {
 
                             if(e.target.status === 200) {
             
-                                emailPerson.innerText = "Email: " + data.email
-                                firstNamePerson.innerText = "First name: " + data.name
-                                lastnNamePerson.innerText = "Last name: " + data.lastName
-                                avatarPerson.src = data.avatar
+                                emailPerson.innerText = "Email: " + ((data.email) ? data.email : emailPersonTextForEdit.replace(/"/g, '')),
+                                firstNamePerson.innerText = "First name: " + ((data.name) ? data.name : firstNamePersonTextForEdit.replace(/"/g, '')),
+                                lastnNamePerson.innerText = "Last name: " + ((data.lastName) ? data.lastName : lastnNamePersonTextForEdit.replace(/"/g, '')),
+                                avatarPerson.src = (data.avatar) ? data.avatar : avatarPersonUrl.replace(/"/g, '')
 
                                 editPersonForm.remove()
                                 item.appendChild(editPerson)
@@ -236,6 +241,6 @@ class MyPersonsList {
 const listEl = document.getElementById('yourList')
 const myPersonsList = new MyPersonsList(listEl)
 
-myPersonsList.creatCards()
+
 myPersonsList.click()
 myPersonsList.logIn()
