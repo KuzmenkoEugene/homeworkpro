@@ -10,18 +10,22 @@ let passwordAdd = document.getElementById('addYourPassword');
 let logInButton = document.getElementById('addNewPersonButton')
 let logInForm = document.getElementById('formForLogIn')
 let buttons = document.getElementsByClassName('my_list__button')[0]
+let logOutbuttonBlock = document.getElementsByClassName('log_out_block')[0]
 let editForm = document.getElementById("editPerson").innerHTML;
 let xhr = new XMLHttpRequest();
+let logOutButton = document.getElementById('logOutBtn')
 
 function displayNone() {
     contentList.style.display = 'none';
     buttons.style.display = 'none';
+    logOutbuttonBlock.style.display = 'none';
 }
 
 function onSuccess () {
     logInForm.remove()
     contentList.style.display = '';
     buttons.style.display = '';
+    logOutbuttonBlock.style.display = '';
     creatCards()
 }
 
@@ -211,7 +215,24 @@ function authorization() {
         buttons.style.display = '';
         creatCards()
     }
+
+    if(!localStorage.getItem('token')) {
+
+    }
 }
+
+
+
+
+function deleteToken() {
+
+    location.reload();
+
+    window.localStorage.removeItem('token')
+}
+
+
+logOutButton.addEventListener('click', deleteToken)
 
 
 logIn()
