@@ -205,6 +205,7 @@ function click() {
 
     buttonClickPrevious.addEventListener('click', clickPrevious)
     buttonClickNext.addEventListener('click', clickNext)
+    logOutButton.addEventListener('click', deleteToken)
 }
 
 function authorization() {
@@ -215,25 +216,13 @@ function authorization() {
         buttons.style.display = '';
         creatCards()
     }
-
-    if(!localStorage.getItem('token')) {
-
-    }
 }
-
-
-
 
 function deleteToken() {
 
     location.reload();
-
     window.localStorage.removeItem('token')
 }
-
-
-logOutButton.addEventListener('click', deleteToken)
-
 
 logIn()
 click()
