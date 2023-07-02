@@ -1,5 +1,3 @@
-
-this.yourList = yourList;
 let contentList = document.getElementsByClassName('my_list')[0];
 let buttonClickPrevious = document.getElementById('buttonPrevious');
 let buttonClickNext = document.getElementById('buttonNext');
@@ -18,11 +16,12 @@ let logOutButton = document.getElementById('logOutBtn')
 function displayNone() {
     contentList.style.display = 'none';
     buttons.style.display = 'none';
-    logOutbuttonBlock.style.display = 'none';
+    
 }
 
 function onSuccess () {
     logInForm.remove()
+    authorization()
     contentList.style.display = '';
     buttons.style.display = '';
     logOutbuttonBlock.style.display = '';
@@ -203,6 +202,12 @@ function click() {
         }
     }
 
+    deleteToken = () => {
+
+        location.reload();
+        window.localStorage.removeItem('token')
+    }
+
     buttonClickPrevious.addEventListener('click', clickPrevious)
     buttonClickNext.addEventListener('click', clickNext)
     logOutButton.addEventListener('click', deleteToken)
@@ -214,14 +219,11 @@ function authorization() {
         logInForm.remove()
         contentList.style.display = '';
         buttons.style.display = '';
+        logOutbuttonBlock.style.display = '';
         creatCards()
+    } else if (!localStorage.getItem('token')) {
+        logOutbuttonBlock.style.display = 'none';
     }
-}
-
-function deleteToken() {
-
-    location.reload();
-    window.localStorage.removeItem('token')
 }
 
 logIn()
