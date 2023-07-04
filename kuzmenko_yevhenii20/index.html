@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kuzmenko Yevhenii 19</title>
+    <title>Kuzmenko Yevhenii 20</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="css.css">
     <script src="service/api.js" defer></script>
@@ -12,14 +12,14 @@
 </head>
 <body>
     <div class="main" id="yourList">
-        <div class="form_for_new_person" id="formForLogIn">
+        <div class="form_for_log_in" id="formForLogIn">
             <form class="interface_form" id="login-template">
                 <label for="addYourEmail">Your email:</label>
-                <input class="form_for__email" type="email" id="addYourEmail" name="auto" label="Your email">
+                <input class="form_for__email" id="addYourEmail" type="email" name="email" label="Your email" autocomplete="on">
                 <label for="addYourPassword">Your password:</label>
-                <input class="form_for__password" type="password" id="addYourPassword" name="auto" label="Your password">
+                <input class="form_for__password" id="addYourPassword" type="password" name="password" label="Your password">
                 <div class="form_for_new_person__button-wrap">
-                    <button class="form_for_new_person__button" id="addNewPersonButton">Log in</button>
+                    <button class="form_for_log_in__button" id="logInButton">Log in</button>
                 </div>
             </form>    
         </div>
@@ -28,6 +28,23 @@
         <div class="my_list__button">
             <button class="button__previous" disabled id="buttonPrevious">previous</button>
             <button class="button__next" id="buttonNext">next</button>
+        </div>
+        <div class="form_for_new_person" id="formForNewPerson">
+            <form class="interface_form">
+                <label for="addFirstNamePerson">First Name:</label>
+                <input class="form_for_new_person__firstname" type="text" id="addFirstNamePerson" label="Your First Name">
+                <label for="addLastNamePerson">Last Name:</label>
+                <input class="form_for_new_person__lastname" type="text" id="addLastNamePerson" label="Your Last name">
+                <label for="addModifiedEmail">Your email:</label>
+                <input class="form_for_new_person__email" type="email" id="addModifiedEmail" name="email" label="Your email" autocomplete="on">
+                <label for="addYourJob">Your job:</label>
+                <input class="form_for_new_person__email" type="text" id="addYourJob" label="Your job">
+                <div class="form_for_new_person__button-wrap">
+                    <button class="form_for_new_person__button" id="addNewPersonButton">add</button>
+                </div>
+            </form>    
+        </div>
+        <div class="my_newlist" id="myNewCards">
         </div>
     </div>
 

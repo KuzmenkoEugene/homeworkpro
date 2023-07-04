@@ -12,7 +12,8 @@ body {
     gap: 15px;
 }
 
-.my_list {
+.my_list,
+.my_newlist {
     width: 40%;
     padding: 2%;
     display: flex;
@@ -38,7 +39,8 @@ body {
     width: 30%;
 }
 
-.form_for_new_person {
+.form_for_new_person,
+.form_for_log_in {
     display: flex;
     flex-direction: column;
     width: 25%;
@@ -54,7 +56,8 @@ body {
     gap: 8px;
 }
 
-.form_for_new_person__button {
+.form_for_new_person__button,
+.form_for_log_in__button {
     width: 50%;
     cursor: pointer;
 }
