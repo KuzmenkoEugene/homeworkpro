@@ -34,11 +34,12 @@ function displayNone() {
 function onSuccess () {
     logInForm.remove()
     authorization()
+    logInForm.remove()
     contentList.style.display = '';
     buttons.style.display = '';
+    logOutbuttonBlock.style.display = '';
     newUsersForm.style.display = '';
     newUsersList.style.display = '';
-    logOutbuttonBlock.style.display = '';
   
     creatCards()
 
@@ -378,7 +379,10 @@ function authorization() {
         contentList.style.display = '';
         buttons.style.display = '';
         logOutbuttonBlock.style.display = '';
+        newUsersForm.style.display = '';
+        newUsersList.style.display = '';
         creatCards()
+        createNewUsers()
     } else if (!localStorage.getItem('token')) {
         logOutbuttonBlock.style.display = 'none';
     }
