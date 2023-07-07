@@ -1,5 +1,3 @@
-
-
 let contentList = document.getElementsByClassName('my_list')[0];
 let buttonClickPrevious = document.getElementById('buttonPrevious');
 let buttonClickNext = document.getElementById('buttonNext');
@@ -22,6 +20,9 @@ let emailInput = document.getElementById('addModifiedEmail')
 let jobInput = document.getElementById('addYourJob')
 let myButton = document.getElementById('addNewPersonButton')
 
+let logOutbuttonBlock = document.getElementsByClassName('log_out_block')[0]
+let logOutButton = document.getElementById('logOutBtn')
+
 function displayNone() {
     contentList.style.display = 'none';
     buttons.style.display = 'none';
@@ -32,10 +33,12 @@ function displayNone() {
 
 function onSuccess () {
     logInForm.remove()
+    authorization()
     contentList.style.display = '';
     buttons.style.display = '';
     newUsersForm.style.display = '';
     newUsersList.style.display = '';
+    logOutbuttonBlock.style.display = '';
   
     creatCards()
 
@@ -60,7 +63,13 @@ function logIn() {
                 .then(response => {
                     if (response.status === 200) {
                     onSuccess()
+                    api.loginApi({email, password})
+                        .then(response => response.json())
+                        .then(response => {
+                        window.localStorage.setItem('token', response.token)
+                })
                     } 
+                    
                 })
         }
 
@@ -214,8 +223,15 @@ function click() {
         }
     }
 
+    deleteToken = () => {
+
+        location.reload();
+        window.localStorage.removeItem('token')
+    }
+
     buttonClickPrevious.addEventListener('click', clickPrevious)
     buttonClickNext.addEventListener('click', clickNext)
+    logOutButton.addEventListener('click', deleteToken)
 }
 
 function createNewUsers() {
@@ -355,9 +371,22 @@ function createNewUsers() {
     })
 }
 
+function authorization() {
 
+    if(localStorage.getItem('token')) {
+        logInForm.remove()
+        contentList.style.display = '';
+        buttons.style.display = '';
+        logOutbuttonBlock.style.display = '';
+        creatCards()
+    } else if (!localStorage.getItem('token')) {
+        logOutbuttonBlock.style.display = 'none';
+    }
+}
 
 logIn()
+click()
+authorization()
 
 
 

@@ -72,7 +72,8 @@ body {
 .person__edit,
 .person__delete,
 .edit__save,
-.edit__cancel {
+.edit__cancel,
+.log_out_block_button {
     cursor: pointer;
 }
 
@@ -82,7 +83,8 @@ body {
     font-weight: 600;
 }
 
-.person__delete {
+.person__delete,
+.log_out_block_button {
     color: rgb(243, 62, 62);
     font-size: 11px;
     font-weight: 600;
