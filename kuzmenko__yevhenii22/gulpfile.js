@@ -28,8 +28,13 @@ function modelIndexHTML() {
     .pipe(gulp.dest('./dist'));
 }
 
+function watchHTML() {
+    return gulp.watch('./index.html', modelIndexHTML)
+}
+
 exports.buildStyles = buildStyles;
 exports.watchStyles = watchStyles;
 exports.minifyJS = minifyJS;
 exports.watchMinifyJS = watchMinifyJS
+exports.watchHTML = watchHTML
 exports.build = gulp.series(modelIndexHTML, gulp.parallel(buildStyles, minifyJS))
