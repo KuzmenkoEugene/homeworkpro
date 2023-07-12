@@ -1,1 +1,134 @@
-*,*::after,*::before{box-sizing:border-box;margin:0;padding:0}body{line-height:1}a,p{text-decoration:none}ol,ul{list-style:none;font-size:0rem}body{background:#eee}.main{width:100%;padding-top:50px;padding-bottom:50px;display:flex;flex-direction:column;align-items:center;gap:15px}.my_list,.my_newlist{width:40%;padding:2%;display:flex;flex-direction:column;align-items:center;gap:8px;background:#f5f5f5;border-radius:10px}.my_list__person{width:80%;padding:2%;display:flex;flex-direction:column;align-items:center;gap:6px;border:1px solid #a09d9d;border-radius:10px}.person__avatar{width:30%}.form_for_new_person,.form_for_log_in{display:flex;flex-direction:column;width:25%;padding:2%;border-radius:10px;background-color:#c7f8c7}.interface_form{display:flex;flex-direction:column;padding:2% 25%;gap:8px}.form_for_new_person__button,.form_for_log_in__button{width:50%;cursor:pointer}.form_for_new_person__button-wrap{display:flex;justify-content:center}.button__previous,.button__next,.person__edit,.person__delete,.edit__save,.edit__cancel,.log_out_block_button{cursor:pointer}.person__edit{color:#e3d110;font-size:11px;font-weight:600}.person__delete,.log_out_block_button{color:#f33e3e;font-size:11px;font-weight:600}.edit__cancel{color:#f45353;font-size:11px;font-weight:600}.edit__save{color:#09c44a;font-size:11px;font-weight:600}.edit__form{display:flex;flex-direction:column;padding:3%;gap:4px;background-color:#efe99f;border-radius:8px}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1;
+}
+
+a,
+p {
+  text-decoration: none;
+}
+
+ol, ul {
+  list-style: none;
+  font-size: 0rem;
+}
+
+body {
+  background: #eeeeee;
+}
+
+.main {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.my_list,
+.my_newlist {
+  width: 40%;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: whitesmoke;
+  border-radius: 10px;
+}
+
+.my_list__person {
+  width: 80%;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgb(160, 157, 157);
+  border-radius: 10px;
+}
+
+.person__avatar {
+  width: 30%;
+}
+
+.form_for_new_person,
+.form_for_log_in {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  padding: 2%;
+  border-radius: 10px;
+  background-color: rgb(199, 248, 199);
+}
+
+.interface_form {
+  display: flex;
+  flex-direction: column;
+  padding: 2% 25%;
+  gap: 8px;
+}
+
+.form_for_new_person__button,
+.form_for_log_in__button {
+  width: 50%;
+  cursor: pointer;
+}
+
+.form_for_new_person__button-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.button__previous,
+.button__next,
+.person__edit,
+.person__delete,
+.edit__save,
+.edit__cancel,
+.log_out_block_button {
+  cursor: pointer;
+}
+
+.person__edit {
+  color: rgb(227, 209, 16);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.person__delete,
+.log_out_block_button {
+  color: rgb(243, 62, 62);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.edit__cancel {
+  color: rgb(244, 83, 83);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.edit__save {
+  color: rgb(9, 196, 74);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.edit__form {
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+  gap: 4px;
+  background-color: rgb(239, 233, 159);
+  border-radius: 8px;
+}/*# sourceMappingURL=main.css.map */
