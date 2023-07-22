@@ -3,7 +3,7 @@ import React from 'react';
 export const MyHeader = () => {
     return (
         <header className='header'>
-            <h1>Header</h1>
+            <h1 className='header__title'>Header</h1>
         </header>
     );
 }
@@ -11,7 +11,8 @@ export const MyHeader = () => {
 export const MyMain = () => {
     return (
         <main className='main'>
-            <h1>myMain</h1>
+            {MyNav()}
+            {MyContent()}
         </main>
     );
 }
@@ -27,7 +28,7 @@ export const MyNav = () => {
 export const MyContent = () => {
     return (
         <content className='content'>
-            <h1>content</h1>
+            <img src="../img/content.jpg" alt="content picture" />
         </content>
     );
 }

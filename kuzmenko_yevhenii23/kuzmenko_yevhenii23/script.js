@@ -11,7 +11,6 @@ const App = () => {
         null, 
         [   
             React.createElement(MyHeader),
-            React.createElement(MyNav),
             React.createElement(MyMain),
         ]
     )
