@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Menu} from '../components/components.jsx'
+
 export const MyHeader = () => {
     return (
         <header className='header'>
@@ -18,17 +20,17 @@ export const MyMain = () => {
 }
 
 export const MyNav = () => {
-    return (
+    return ( 
         <nav className='nav'>
-            <h1>myNav</h1>
+            {Menu()}
         </nav>
     );
 }
 
 export const MyContent = () => {
     return (
-        <content className='content'>
+        <div className='content'>
             <img src="../img/content.jpg" alt="content picture" />
-        </content>
+        </div>
     );
 }

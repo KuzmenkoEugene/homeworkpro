@@ -11,6 +11,20 @@ $colorfor: rgb(241, 222, 199);
     border-radius: 0 0 10px 10px;
 }
 
+.menu-wrap {
+    display: flex;
+    justify-content: center;
+    background-color: $colorfor;
+    width: 100%;
+    padding: 10%;
+    border-radius: 8px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+}
+
 .header__title {
     color: black;
     font-size: 25px;
@@ -24,9 +38,7 @@ $colorfor: rgb(241, 222, 199);
 
 .nav {
     width: 25%;
-    padding: 3%;
     margin: 1%;
-    background-color: rgb(241, 222, 199);
     border-radius: 8px;
 }
 
@@ -34,6 +46,6 @@ $colorfor: rgb(241, 222, 199);
     width: 75%;
     padding: 3%;
     margin: 1%;
-    background-color: rgb(241, 222, 199);
+    background-color: $colorfor;
     border-radius: 8px;
 }

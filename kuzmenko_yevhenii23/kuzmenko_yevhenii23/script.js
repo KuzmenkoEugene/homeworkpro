@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import {MyHeader, MyMain, MyNav, MyContent} from './container/containers.jsx'
+import {MyHeader, MyMain} from './container/containers.jsx'
 
 import "./style/style.scss";
 
