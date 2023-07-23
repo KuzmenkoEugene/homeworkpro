@@ -1,9 +1,11 @@
 import React from 'react';
 
+import {Menu} from '../components/components.jsx'
+
 export const MyHeader = () => {
     return (
         <header className='header'>
-            <h1>Header</h1>
+            <h1 className='header__title'>Header</h1>
         </header>
     );
 }
@@ -11,23 +13,24 @@ export const MyHeader = () => {
 export const MyMain = () => {
     return (
         <main className='main'>
-            <h1>myMain</h1>
+            {MyNav()}
+            {MyContent()}
         </main>
     );
 }
 
 export const MyNav = () => {
-    return (
+    return ( 
         <nav className='nav'>
-            <h1>myNav</h1>
+            {Menu()}
         </nav>
     );
 }
 
 export const MyContent = () => {
     return (
-        <content className='content'>
-            <h1>content</h1>
-        </content>
+        <div className='content'>
+            <img src="../img/content.jpg" alt="content picture" />
+        </div>
     );
 }
