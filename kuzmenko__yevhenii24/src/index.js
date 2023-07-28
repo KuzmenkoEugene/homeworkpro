@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import {Counter} from './components/counter.jsx'
+import {TheBestSmile} from './components/smile.jsx'
 
 import './style/style.scss'
 
@@ -12,9 +12,9 @@ class App extends React.Component {
 
     render() {
         return (
-            <main>
+        <main className='main'>
             <h1> { this.props.title } </h1>
-            <Counter/>
+            <TheBestSmile/>
         </main>
         )
     }
