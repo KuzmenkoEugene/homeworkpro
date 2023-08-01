@@ -5,10 +5,6 @@ import { ToDoList } from './todolist/todolist.jsx';
 export class App extends React.Component {
     constructor() {
         super()
-
-        this.state = {
-            showDemoList: true
-        }
     }
 
     render() {
