@@ -6,7 +6,14 @@ export class Contacts extends React.Component {
         
         this.state = {
             list: [],
-            showForm: false
+            showForm: false,
+            noText: false,
+        }
+
+        this.newUser = {
+            name: '',
+            username: '',
+            phone: ''
         }
 
         this.data()
@@ -54,6 +61,48 @@ export class Contacts extends React.Component {
         )
     }
 
+    cleaner = () => {
+        this.newUser = {
+            name: '',
+            username: '',
+            phone: ''
+        }
+    }
+
+    add = () => {
+        if (this.newUser.name === '' || this.newUser.username === '' || this.newUser.phone === '') {
+                this.setState({
+                    noText: true
+                })
+        } else {
+
+            this.setState({
+                noText: false
+            })
+
+            this.state.list.push({name: this.newUser.name, username: this.newUser.username, phone: this.newUser.phone})
+
+            this.setState(
+                this.render(),
+                this.closeForm(),
+                this.cleaner()
+            )
+        }
+        
+    }
+
+    nameForNewPerson = (e) => {
+        this.newUser.name = e.target.value
+    }
+
+    usernameForNewPerson = (e) => {
+        this.newUser.username = e.target.value
+    }
+
+    phoneForNewPerson = (e) => {
+        this.newUser.phone = e.target.value
+    }
+
     render = () => {
         return (
             <div className="users">
@@ -76,19 +125,21 @@ export class Contacts extends React.Component {
                 }
                 <div className="users_create">
                    <button onClick={this.showForm} className="users_create_btn">Show form</button>
+                   {this.state.noText && (
+                    <p>Fields are empty</p>
+                   )}
                    {this.state.showForm && (
                         <div className="create_form">
-                            <input onInput={this.add} className="form_input" type="text" placeholder="Your name" />
-                            <input className="form_input" type="text" placeholder="Your username"/>
-                            <input className="form_input" type="text" placeholder="Your phone"/>
+                            <input onInput={this.nameForNewPerson}  className="form_input" type="text" placeholder="Your name" />
+                            <input onInput={this.usernameForNewPerson}  className="form_input" type="text" placeholder="Your username"/>
+                            <input onInput={this.phoneForNewPerson} className="form_input" type="text" placeholder="Your phone"/>
                             {this.state.showForm && (
                             <div className="form_close">
-                                <button className="users_create_btn">Add</button>
+                                <button  onClick={this.add} className="users_create_btn">Add</button>
                                 <button onClick={this.closeForm} className="users_create_btn">Close</button>
                             </div>)}
                         </div>
                    )}
-                   
                 </div>
             </div>
         )   
