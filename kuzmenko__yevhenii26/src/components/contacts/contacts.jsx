@@ -43,12 +43,15 @@ export class Contacts extends React.Component {
 
     deleteUser = (index) => {
         
+        let userId = index
 
-        fetch(`https://jsonplaceholder.typicode.com/posts/1`, {
+        fetch(`https://jsonplaceholder.typicode.com/posts/${userId++}`, {
             method: 'DELETE'
         })
             .then(response => response)
             .then(response => {
+
+                console.log(index, userId)
                 if(response.status === 200) {
 
                     let updatedList = [...this.state.list];
