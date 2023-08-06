@@ -42,11 +42,22 @@ export class Contacts extends React.Component {
     } 
 
     deleteUser = (index) => {
-        let updatedList = [...this.state.list];
+        
 
-        updatedList.splice(index, 1);
+        fetch(`https://jsonplaceholder.typicode.com/posts/1`, {
+            method: 'DELETE'
+        })
+            .then(response => response)
+            .then(response => {
+                if(response.status === 200) {
 
-        this.setState({ list: updatedList })
+                    let updatedList = [...this.state.list];
+
+                    updatedList.splice(index, 1);    
+
+                    this.setState({ list: updatedList })
+                }
+            })  
     }
 
     showForm = () => {
@@ -80,13 +91,27 @@ export class Contacts extends React.Component {
                 noText: false
             })
 
-            this.state.list.push({name: this.newUser.name, username: this.newUser.username, phone: this.newUser.phone})
+            fetch('https://jsonplaceholder.typicode.com/posts/1', {
+            method: 'PUT',
+            body: JSON.stringify({
+                name: this.newUser.name, 
+                username: this.newUser.username, 
+                phone: this.newUser.phone
+            }),
+            headers: {
+            'Content-type': 'application/json; charset=UTF-8'},
+            })
+            .then((response) => response.json())
+            .then((response) => {
 
-            this.setState(
-                this.render(),
-                this.closeForm(),
-                this.cleaner()
-            )
+                this.state.list.push(response)
+
+                this.setState(
+                    this.render(),
+                    this.closeForm(),
+                    this.cleaner()
+                )
+            });
         }
         
     }
