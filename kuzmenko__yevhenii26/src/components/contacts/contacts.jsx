@@ -50,8 +50,6 @@ export class Contacts extends React.Component {
         })
             .then(response => response)
             .then(response => {
-
-                console.log(index, userId)
                 if(response.status === 200) {
 
                     let updatedList = [...this.state.list];
