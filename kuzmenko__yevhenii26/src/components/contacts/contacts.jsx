@@ -13,8 +13,10 @@ export class Contacts extends React.Component {
         this.newUser = {
             name: '',
             username: '',
-            phone: ''
+            phone: '',
         }
+
+        this.originalID;
 
         this.data()
     }
@@ -32,31 +34,31 @@ export class Contacts extends React.Component {
             let usersData = data.map(el => ({
                 name: el.name,
                 username: el.username,
-                phone: el.phone
+                phone: el.phone,
+                id: el.id
             }))
 
+            this.originalID = usersData.length
+
             this.setState({
-                list: usersData
+                list: usersData,
             })
         })
     } 
 
-    deleteUser = (index) => {
+    deleteUser = (id) => {
         
-        let userId = index
-
-        fetch(`https://jsonplaceholder.typicode.com/posts/${userId++}`, {
+        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
             method: 'DELETE'
         })
             .then(response => response)
             .then(response => {
+
                 if(response.status === 200) {
 
-                    let updatedList = [...this.state.list];
+                    const updList = this.state.list.filter(el => el.id !== id)   
 
-                    updatedList.splice(index, 1);    
-
-                    this.setState({ list: updatedList })
+                    this.setState({ list: updList })
                 }
             })  
     }
@@ -92,12 +94,15 @@ export class Contacts extends React.Component {
                 noText: false
             })
 
-            fetch('https://jsonplaceholder.typicode.com/posts/1', {
+            this.originalID++
+
+            fetch(`https://jsonplaceholder.typicode.com/posts/${this.originalID}`, {
             method: 'PUT',
             body: JSON.stringify({
                 name: this.newUser.name, 
                 username: this.newUser.username, 
-                phone: this.newUser.phone
+                phone: this.newUser.phone,
+                id: this.newUser.id
             }),
             headers: {
             'Content-type': 'application/json; charset=UTF-8'},
@@ -136,7 +141,7 @@ export class Contacts extends React.Component {
                     this.state.list.map((el, index) => 
                     <div className="user_item" key={`${index}-block`}>
                         <div className="user_delete" key={`${index}-delte`}>
-                            <button onClick={() => this.deleteUser(index)} className="delete-btn" key={`${index}-delte-btn`}>Delete</button>
+                            <button onClick={() => this.deleteUser(el.id)} className="delete-btn" key={`${index}-delte-btn`}>Delete</button>
                         </div>
                         <div className="user_name" key={`${el.name}-${index}-d`}>
                             <p key={`${el.name}-${index}-p`}>{el.name}</p>
