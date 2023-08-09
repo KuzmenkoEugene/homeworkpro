@@ -1,0 +1,41 @@
+html, body, div {
+    margin: 0;
+    padding: 0;
+}
+
+.user_name,
+.user_url-block,
+.main,
+.user_item {
+    display: flex;
+}
+
+.user_name,
+.user_url-block,
+.main {
+    justify-content: center;
+}
+
+.user_url-block {
+    align-items: center;
+}
+
+.user_name,
+.user_url-block,
+.main  {
+    width: 100%;
+}
+
+
+.users,
+.user_item,
+.user_name,
+.user_url-block {
+    border: 1px solid gray;
+}
+
+.users {
+    width: 80%;
+}
+
+
