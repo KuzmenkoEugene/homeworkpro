@@ -27,7 +27,7 @@ const listToDoReducer = (state = initialState, action) => {
 }
 
 const rootReducer = combineReducers({
-    listToDoReducer: listToDoReducer
+    listToDoReducer: listToDoReducer,
 })
 
 const store = createStore(rootReducer, applyMiddleware(logger))
@@ -36,13 +36,13 @@ const store = createStore(rootReducer, applyMiddleware(logger))
 //     console.log('store => ', store.getState())
 // })
 
-store.dispatch({
-    type: 'ADD',
-    payload: 'test'
-})
+// store.dispatch({
+//     type: 'ADD',
+//     payload: 'test'
+// })
 
 
-// console.log(store.getState().listToDoReducer.listTodu)
+// console.log(store.getState().listToDoReducer.listToDo)
 
 
 const root = ReactDOM.createRoot(document.getElementById('app'));

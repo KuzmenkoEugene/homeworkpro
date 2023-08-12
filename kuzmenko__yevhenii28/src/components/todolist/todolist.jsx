@@ -1,26 +1,15 @@
 import React, {useState} from "react";
 import {connect} from 'react-redux';
 
-const ToDoList = () => {
-    const[list, setList] = useState(['Text 1', 'Text 2', 'Text 3']);
+const ToDoList = ({listToDo, addToDoItem}) => {
     const [myNewValue, setMyNewValue] = useState('');
 
-    const itemChange = (e) => {
-
-        setMyNewValue(e.target.value) 
-
-    }
-
-    const addToDo = (e) => {
-
+    const addItem = (e) => {
         e.preventDefault()
 
         if (myNewValue !== '') {
 
-            const updateList = [...list, myNewValue]
-
-            setList(updateList)
-
+            addToDoItem(myNewValue)
             setMyNewValue('')
         }
     }
@@ -35,12 +24,11 @@ const ToDoList = () => {
           }
     }
 
-
     return (
         <div className="todolist-wrap">
             <div onClick={statusChange} className="todolist_list">
                 {
-                    list.map((el, index) => 
+                    listToDo.map((el, index) => 
                         <div className="list_item" key={`${index}`}> 
                             <p className="item_text" key={`${el}-${index}`}>
                                 {el}
@@ -50,9 +38,9 @@ const ToDoList = () => {
                 }
             </div>
             <div className="form-wrap">
-                <form className="form" onSubmit={addToDo}>
-                    <input className="form_input" type="text" name="text" value={myNewValue} placeholder="your text" onChange={itemChange}/>
-                    <button className="form_button">
+                <form className="form" >
+                    <input className="form_input" type="text" name="text" value={myNewValue} placeholder="your text" onChange={(e) => setMyNewValue(e.target.value)}/>
+                    <button onClick={addItem} className="form_button">
                         add
                     </button>
                 </form>
@@ -61,10 +49,22 @@ const ToDoList = () => {
     )   
 }
 
-
 const mapStateToProps = (state) => {
-    return state
-};
+    return {
+        listToDo: state.listToDoReducer.listToDo
+    }
+}
 
-export default connect(mapStateToProps)(ToDoList);
+const mapDispatchToProps = (dispatch) => {
+   return {
+        addToDoItem: (myNewValue) => {
+            dispatch({
+                type: 'ADD',
+                payload: myNewValue
+            })
+        }
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToDoList);
 
