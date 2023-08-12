@@ -36,10 +36,10 @@ const store = createStore(rootReducer, applyMiddleware(logger))
 //     console.log('store => ', store.getState())
 // })
 
-store.dispatch({
-    type: 'ADD',
-    payload: 'test'
-})
+// store.dispatch({
+//     type: 'ADD',
+//     payload: 'test'
+// })
 
 
 // console.log(store.getState().listToDoReducer.listToDo)
