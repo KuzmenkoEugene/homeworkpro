@@ -1,0 +1,47 @@
+.main,
+.todolist_list,
+.form,
+.todolist-wrap,
+.form-wrap,
+.todolist_title-wrap  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-wrap,
+.form_input,
+.main  {
+    width: 100%;
+}
+
+.form {
+    width: 80%;
+    padding: 10px;
+    gap: 20px;
+}
+ 
+.todolist_title-wrap,
+.todolist-wrap {
+    width: 50%;
+    border: 1px solid gray;
+}
+
+.form_input {
+    height: 20px;
+}
+
+.diditem_text {
+    color: green;
+}
+
+.item_text {
+    color: red;
+}
+
+.form_button,
+.item_text,
+.diditem_text  {
+    cursor: pointer;
+}
+
