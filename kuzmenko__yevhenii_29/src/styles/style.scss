@@ -1,0 +1,76 @@
+html, body, div {
+    margin: 0;
+    padding: 0;
+}
+
+.user_item,
+.create_form  {
+    display: flex;
+    justify-content: space-around;
+}
+
+.user_name,
+.user_username,
+.user_phone,
+.user_delete,
+.form_close,
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.users_create {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create_form,
+.users_create,
+.user_name,
+.user_username,
+.user_phone,
+.user_delete,
+.main,
+.form_close  {
+    width: 100%;
+}
+
+.main,
+.users,
+.user_item,
+.user_name,
+.user_username,
+.user_phone,
+.user_delete,
+.create_form,
+.form_input {
+    border: 1px solid gray;
+}
+
+.users {
+    width: 80%;
+}
+
+.delete-btn,
+.users_create_btn {
+    cursor: pointer;
+}
+
+.delete-btn {
+    display: block;
+    width: 20%;
+    margin: 3%;
+}
+
+.users_create_btn {
+    width: 15%;
+    padding: 1%;
+    margin: 1%;
+}
+
+.form_input {
+    padding: 1%;
+    margin: 1%;
+}
+

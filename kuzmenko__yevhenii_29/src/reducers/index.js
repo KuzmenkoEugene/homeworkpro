@@ -1,0 +1,1 @@
+export { postsReducer } from "./usersList.reducer.js";
