@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake game</title>
+    <link rel="stylesheet" href="sass/main.scss">
+    <link rel="icon" href="snake.ico">
+    <script defer src="index.js"></script>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main class="main">
+        <div class="game_section">
+            <div class="game" id="game">
+                <div class="game_header">
+                    <div class="game_sign">
+                        <span class="sign_name">
+
+                        </span>
+                        <span class="sign_level">
+
+                        </span>
+                        <span class="sign_count">
+
+                        </span>
+                    </div>
+                </div>
+                <div class="game_canvas-wrapper">
+                    <canvas id="game-canvas" width="320" height="400">
+                    </canvas>
+                </div>
+            </div>
+            <div class="game_rating">
+                
+                <h2>Рейтинг гравців:</h2>
+                <ul id="rating_usersList">
+                    
+                </ul>
+            </div>
+        </div>
+        <div id="myModal" class="modal">
+            <div class="modal_content">
+                <h2>Введіть своє ім'я та оберіть рівень складності:</h2>
+                <input type="text" id="playerName" placeholder="Ваше ім'я">
+                <label for="difficulty">Рівень складності:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <button id="startGame">Почати гру</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>
+            © 2023 Kuzmenko Yevhenii
+        </p>
+    </footer>
+</body>
+
+</html>
